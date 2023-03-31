@@ -1,2 +1,2 @@
 // Say hello!
-console.log('Hello from web/index.js');
+console.log('Hello World from web/index.js');
