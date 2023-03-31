@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - name: Set up pnpm
         uses: pnpm/action-setup@v2
 
@@ -25,11 +30,6 @@ jobs:
       - name: Install dependencies
         shell: bash
         run: pnpm install
-
-      - name: checkout code repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: create and publish versions
         uses: changesets/action@v1
