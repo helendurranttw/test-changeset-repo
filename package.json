@@ -1,0 +1,15 @@
+{
+  "name": "test-changeset-repo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Just a test repo to test out the changeset bot",
+  "keywords": [],
+  "author": "helendurranttw",
+  "packageManager": "pnpm@7.27.0",
+  "workspaces": [
+    "web"
+  ],
+  "devDependencies": {
+    "@changesets/cli": "2.26.0"
+  }
+}

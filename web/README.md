@@ -1,0 +1,1 @@
+This is a fake web package which should be published to npm.

@@ -1,0 +1,12 @@
+{
+  "name": "test-changeset-repo-internal-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fake internal web package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "helendurranttw"
+}
