@@ -4,33 +4,32 @@ on:
     branches:
       - main
 
-env:
-  CI: true
-  PNPM_CACHE_FOLDER: .pnpm-store
-
 jobs:
   version:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+
+      - name: Set safe directory
+        shell: bash
+        run: git config --global --add safe.directory "$(pwd)"
+
+      - name: Install dependencies
+        shell: bash
+        run: pnpm install
+
       - name: checkout code repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
-      - name: setup node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: install pnpm
-        run: npm i pnpm@7.27.0 -g
-
-      - name: setup pnpm config
-        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
-
-      - name: install dependencies
-        run: pnpm install
 
       - name: create and publish versions
         uses: changesets/action@v1
