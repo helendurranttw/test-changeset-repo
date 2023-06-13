@@ -1,5 +1,6 @@
 name: Changesets
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -29,12 +30,10 @@ jobs:
         shell: bash
         run: pnpm install
 
-      - name: create and publish versions
+      - name: Create and publish versions
         uses: changesets/action@v1
         with:
-          version: pnpm version
           commit: "Update versions"
           title: "Update versions and publish"
-          publish: pnpm publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
